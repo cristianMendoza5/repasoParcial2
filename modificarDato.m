@@ -1,0 +1,9 @@
+function modificarDato(idDato, cantidad, precioCosto, precioUnitario)
+    conn = database('mysql2026Diario');
+    query = sprintf(['UPDATE parcial_43.producto_43 ' ...
+        'SET CANTIDAD_43=%d, PRECIO_COSTO_43=%.2f, PRECIO_UNITARIO_43=%.2f ' ...
+        'WHERE ID_PRODUCTO_43=%d'], ...
+        cantidad, precioCosto, precioUnitario, idDato);
+    execute(conn, query);
+    close(conn);
+end

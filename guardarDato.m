@@ -1,7 +1,13 @@
-function guardarDato(valorX,valorY,idUsuario)
-conexion = mysql("mysql2026Diario","root","root123")
-query = sprintf('INSERT INTO datos (ESTADO, VALOR_X ,VALOR_Y ,ID_USUARIO) VALUES (%d, %.2f, %.2f, %d);',1,valorX,valorY,idUsuario)
-execute(conexion,query)
-close(conexion)
+function guardarDato(cantidad, precioCosto, precioUnitario)
+conexion = database('mysql2026Diario'); 
+query = sprintf(['INSERT INTO parcial_43.producto_43 ' ...
+    '(ESTADO_43, CANTIDAD_43, PRECIO_COSTO_43, PRECIO_UNITARIO_43) ' ...
+    'VALUES (%d, %d, %.2f, %.2f);'], ...
+    1, cantidad, precioCosto, precioUnitario);
+
+execute(conexion, query);
+
+close(conexion);
 clear conexion query
+
 end
